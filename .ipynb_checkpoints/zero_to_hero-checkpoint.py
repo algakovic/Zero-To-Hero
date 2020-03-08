@@ -231,10 +231,10 @@ def new_hero_new_user_prediction(user_rating, df, algo, battle_tag=None):
         algo1.fit(new_data.build_full_trainset())
         #return ranked predicted heroes that are not in the user rating list, or Hanzo, Widow, Genji or Mccree:
         for h_id in new_ratings_df['Hero'].unique():
-            if h_id not in player_rated_list and h_id not in ['Hanzo', 'Widowmaker', 'Genji', 'McCree']:
+            if h_id not in player_rated_list and h_id not in ['Hanzo', 'Widowmaker', 'Genji']:
                 hero_prediction_list.append((h_id, algo1.predict(user_rating[0]['Battle_Tag'], h_id, clip=False)[3]))
         ranked_heroes = sorted(hero_prediction_list, key=lambda x:x[1], reverse=True)
-        print(ranked_heroes[:5])
+        print(ranked_heroes[:10])
         return ranked_heroes[:]
 # ---------------------------------------------------------------------------------------------------------------
 
