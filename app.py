@@ -1,4 +1,4 @@
-from zero_to_hero import *
+# from zero_to_hero import *
 
 
 
@@ -16,6 +16,10 @@ app = Flask(__name__)
 # apply the cors config to allow access
 app.config['CORS_HEADERS'] = 'Content-Type'
 CORS(app)
+
+@app.route('/')
+def hello_world():
+    return 'Hello World from Zero to Hero'
 
 
 @app.route("/predict", methods=["POST"])

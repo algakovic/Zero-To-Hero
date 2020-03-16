@@ -6,8 +6,13 @@ import pandas as pd
 import numpy as np
 import matplotlib as plt
 
+
+# import os
+# THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
+# heroes_csv = os.path.join(THIS_FOLDER, '60k_Top5_heroes.csv')
+
 # get_ipython().run_line_magic('matplotlib', 'inline')
-big_check = pd.read_csv('60k_Top5_heroes.csv')
+Top5 = pd.read_csv('60k_Top5_heroes.csv')
 
 
 #Define the rating function:
