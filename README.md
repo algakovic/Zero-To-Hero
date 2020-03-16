@@ -3,7 +3,7 @@
 Version: 1.0
 
 ## Executive summary:
-Zero to Hero is a recommendation system that offers users who play the popular eSports title: Overwatch a way to choose a hero to play with. With a growing pool of 31 heroes to choose from in 3 different roles, new and veteran users can benefit from this hero recommender. 
+Zero to Hero is a recommendation system that offers users who play the popular eSports title: Overwatch a way to choose a hero to play with. In Overwatch, two teams of 6 players go head to head in a heated contest. With a growing pool of 31 heroes to choose from in 3 different roles, new and veteran users can benefit from this hero recommender. 
 
 Often players will be stuck single-mindedly on a hero unwilling to choose a new hero to play. This can put enormous pressure on the team. These users will be able to get a hero recommended to them using Zero to hero. Older players who have played a long time and want to diversify their hero pool can also benefit. 
 
@@ -24,10 +24,10 @@ The system falls in line with the game developers encouragement to players of ch
 2. **Cleaning and Reformating Data into Relevant Structure**  
 3. **Role Category Implementation**  
 4. **Implementing the Recommendation System**  
-    4.1 Training the Model  
+    4.1 Training the model  
 5. **Making a Recommendation**  
-    5.1 Interactive User_rating Input  
-    5.2 Making Predictions with new user ratings
+    5.1 Interactive user_rating input  
+    5.2 Making predictions with new user ratings
     
 ## Key Findings:
 The system recommends well to users who exist in the database.
