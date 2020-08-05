@@ -1,6 +1,4 @@
-
-# Flask for basic API routing, jsonify to 'translate' the data you send, request to 'translate' the data received!
-
+# Import modules
 from flask import Flask, jsonify, request
 
 # CORS is to allow us to access this API from a different server
