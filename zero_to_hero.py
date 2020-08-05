@@ -166,32 +166,10 @@ def hero_rater(battle_tagid, heroes_df, num, role=None):
     return rating_list
 
 
-# In[122]:
 
 def test_rating():
      rating = input('How do you rate this Hero on a scale of 1-5?, press n if you do not want to give a rating :\n')
-        
-## try out the new function here!
-# user_rating = hero_rater('Newuser2', roles, 5)
 
-
-# In[123]:
-
-
-# user_rating
-
-
-# ## Making Predictions With the New Ratings
-# Now that you have new ratings, you can use them to make predictions for this new user. The proper way this should work is:
-# 
-# - add the new ratings to the original ratings DataFrame, 
-# - read into a surprise dataset
-# - train a model using the new combined DataFrame
-# - make predictions for the user
-# - order those predictions from highest rated to lowest rated
-# - return the top n recommendations with the text of the actual movie (rather than just the index number)
-
-# In[124]:
 
 
 # define new hero for New User predictions functions
@@ -221,7 +199,7 @@ def new_hero_new_user_prediction(user_rating, df, algo, battle_tag=None):
         ranked_heroes = sorted(hero_prediction_list, key=lambda x:x[1], reverse=True)
         print(ranked_heroes[:10])
         return ranked_heroes[:]
-# ---------------------------------------------------------------------------------------------------------------
+
 
 # define New_User predictions functions
 def new_user_prediction(user_rating, df, algo, battle_tag=None):
@@ -251,46 +229,16 @@ def new_user_prediction(user_rating, df, algo, battle_tag=None):
         ranked_heroes = sorted(hero_prediction_list, key=lambda x:x[1], reverse=True)
         return ranked_heroes[:]
 
-# Test New user prediction:
-# new_user_prediction(user_rating, heroes, algobaseitems)
-
-# Test new hero new UserPrediction:
-# print(new_hero_new_user_prediction(user_rating, heroes, algobaseitems))
-# print(new_user_prediction(user_rating, heroes, algobaseitems))
 
 
-# In[115]:
-
-
-# heroes
-
-
-# # App Api
-
-# In[135]:
-
-
-
-# print(sys.version)
-
-
-# In[129]:
-
-
-
-# In[127]:
-
-
-# Flask for basic API routing, jsonify to 'translate' the data you send, request to 'translate' the data received!
 from flask import Flask, jsonify, request
 
 # CORS is to allow us to access this API from a different server
 from flask_cors import CORS
 
-# time lib only for me to use sleep method to simulate delay waiting for model to run - you can get rid of it
-import time
 
 app = Flask(__name__)
+
 # apply the cors config to allow access
 app.config['CORS_HEADERS'] = 'Content-Type'
 CORS(app)
@@ -299,21 +247,11 @@ CORS(app)
 @app.route("/predict", methods=["POST"])
 def predict_top_hero():
     user_ratings = request.get_json()
-    print(f'user ratings are {user_ratings}!') # user_rating should be formatted ready for you, check it and let me know
-    # database.add_this_person(user_ratings)
-    # result model.predict(whatever_you_need_for_that)
-    time.sleep(6) # get rid of this when using the actual model!
+    print(f'user ratings are {user_ratings}!') 
     fakeResult = [('Ana', 4.3485512861922753), ('Mei', 3.0011787731546877), ('Zarya', 3.8517846004714036), ('Roadhog', 2.7864246532326393), ('Mercy', 1.7086552943912291)]
     return jsonify(fakeResult)
 
     
-# @app.route("/predict", methods = ['POST'])
-# def predict():
-#     if request.method == 'POST':
-#         try: 
-#             data = request.json()
-#             user_ratings = 
-            
 if __name__ == '__main__':
     app.run(debug=True)
 
