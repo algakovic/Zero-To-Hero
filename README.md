@@ -29,13 +29,10 @@ The system falls in line with the game developers encouragement to players of ch
     5.1 Interactive user_rating input  
     5.2 Making predictions with new user ratings
 
-6. Application
-    6.1 app.py contains content of all 
-   
-    
 ## Key Findings:
 The system recommends well to users who exist in the database.
 However it does not extend well to new users that have to overcome the cold start problem by choosing and rating the five randomly selected heroes.
+
 
 
 
