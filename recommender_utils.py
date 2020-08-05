@@ -59,9 +59,6 @@ def concat_melt(df):
     return df
 
 
-#-------------------------------------------------------------------------------------------#
-
-
 
 # Create the hero rating input for users:
 from collections import Counter
@@ -118,7 +115,6 @@ def hero_rater(battle_tagid, heroes_df, num, role=None):
 
 
 # define new hero for New User predictions functions
-#---------------------------------------------------------------
 def prediction(new, user_rating, df, algo, all_heroes, reader, battle_tag=None):
     
     hero_prediction_list = []
@@ -162,28 +158,3 @@ def prediction(new, user_rating, df, algo, all_heroes, reader, battle_tag=None):
                 hero_prediction_list.append((h_id, algo1.predict(user_rating[0]['Battle_Tag'], h_id, clip=False)[3]))
                 ranked_heroes = sorted(hero_prediction_list, key=lambda x:x[1], reverse=True)
         return ranked_heroes[:]
-# ---------------------------------------------------------------------------------------------------------------
-
-
-#     # check if user exists in dataframe and predict for them:
-    
-#                 hero_prediction_list.append((h_id, algo.predict(battle_tag, h_id, clip=False)[3]))
-#             ranked_heroes = sorted(hero_prediction_list, key=lambda x:x[1], reverse=True)
-#             return ranked_heroes[:]
-
-#         else:
-#             zeroed_user_rating = user_rating + [{'Battle_Tag': user_rating[0]['Battle_Tag'], 'Hero': h, 'Ratings':0} for h in all_heroes if h not in player_rated_list]
-#             #Add new users ratings to the dataframe and read in the file
-#             new_ratings_df = df.append(zeroed_user_rating, ignore_index=True, sort=False)
-#             new_data = Dataset.load_from_df(new_ratings_df[['Battle_Tag', 'Hero', 'Ratings']], reader)
-#             #fit algorithm to new data
-#             algo1 = KNNBaseline(sim_options={'name':'cosine', 'user_based':False})
-#             algo1.fit(new_data.build_full_trainset())
-
-#             #return ranked predicted heroes that are not in the user rating list:
-#             for h_id in new_ratings_df['Hero'].unique():
-#                 hero_prediction_list.append((h_id, algo1.predict(user_rating[0]['Battle_Tag'], h_id, clip=False)[3]))
-#             ranked_heroes = sorted(hero_prediction_list, key=lambda x:x[1], reverse=True)
-#             return ranked_heroes[:]
-
-
