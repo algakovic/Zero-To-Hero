@@ -10,7 +10,7 @@ Often players will be stuck single-mindedly on a hero unwilling to choose a new 
 The system falls in line with the game developers encouragement to players of choosing heroes that they enjoy playing or at the very least providing some variety in their hero choices.
 
 ## Key Files:
-1.  [Link] (https://docs.google.com/presentation/d/1Msojl3rMYKx6QoBoxKPLGWAH0FjbMUsbQF8YecpShV8/edit?usp=sharing)to google slides presentation file  
+1. [Link](https://docs.google.com/presentation/d/1Msojl3rMYKx6QoBoxKPLGWAH0FjbMUsbQF8YecpShV8/edit?usp=sharing)to google slides presentation file  
 2. Zero_to_Hero_Presentation.pdf: PDF of presentation slides  3. Zero_to_Hero.ipynb: Jupyter Notebook  
 4. Recommender_utils.py: Local python functions source file for jupyter notebook   
 5. 60k_Top5_heroes.csv: Raw CSV file with data  
