@@ -33,7 +33,7 @@ The system falls in line with the game developers encouragement to players of ch
 The system recommends well to users who exist in the database.
 However it does not extend well to new users that have to overcome the cold start problem by choosing and rating the five randomly selected heroes.
 
-
+Space reserved for image.
 
 
 
