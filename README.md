@@ -29,7 +29,8 @@ The system falls in line with the game developers encouragement to players of ch
     5.1 Interactive user_rating input  
     5.2 Making predictions with new user ratings
 
-Application:
+6. Application
+    6.1 app.py contains content of all 
    
     
 ## Key Findings:

@@ -24,10 +24,6 @@ def predict_top_hero():
     user_rating = request.get_json()
     print(f'You rated: is {user_rating}')
     result = new_hero_new_user_prediction(user_rating, heroes, algobaseitems)
-#     print(f'Your results are: {result}')
-    # database.add_this_person(user_ratings)
-    # result model.predict(whatever_you_need_for_that)
-    # get rid of this when using the actual model!
     return jsonify(result)
 
 if __name__ == '__main__':
