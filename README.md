@@ -28,10 +28,16 @@ The system falls in line with the game developers encouragement to players of ch
 5. **Making a Recommendation**  
     5.1 Interactive user_rating input  
     5.2 Making predictions with new user ratings
+
+Application:
+   
     
 ## Key Findings:
 The system recommends well to users who exist in the database.
 However it does not extend well to new users that have to overcome the cold start problem by choosing and rating the five randomly selected heroes.
+
+
+
 
 ## Conclusions:
 The Main issue with the system is the skewedness of the training data towards highest ranking players. These players tend towards playing similar 'best choice' heroes and so the system is weighted towards recommending those heroes over others.

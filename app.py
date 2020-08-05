@@ -1,6 +1,3 @@
-# from zero_to_hero import *
-
-
 
 # Flask for basic API routing, jsonify to 'translate' the data you send, request to 'translate' the data received!
 
