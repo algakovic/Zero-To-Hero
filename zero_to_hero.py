@@ -7,9 +7,7 @@ import numpy as np
 import matplotlib as plt
 
 
-# import os
-# THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
-# heroes_csv = os.path.join(THIS_FOLDER, '60k_Top5_heroes.csv')
+
 
 # get_ipython().run_line_magic('matplotlib', 'inline')
 Top5 = pd.read_csv('60k_Top5_heroes.csv')
@@ -82,13 +80,6 @@ all_heroes = tanks+damage+support
 roles = heroes.copy()
 roles['Role'] = ['Tank' if x in tanks else 'Damage' if x in damage else 'Support' for x in heroes['Hero']] 
 
-# check the state of the dataframes: 
-# heroes
-# roles
-
-# # Implementing the Recommendation system
-
-# In[119]:
 
 
 # importing relevant libraries
@@ -110,7 +101,7 @@ trainset, testset = train_test_split(train_data, test_size=.25)
 # trainset = train_data.build_full_trainset()
 
 
-# In[120]:
+
 
 
 # # Instantiate two KNN Basic memory based model
@@ -121,17 +112,6 @@ algobaseitems.fit(trainset)
 predictions = algobaseitems.test(testset)
 accuracy.rmse(predictions)
 
-
-# # Making Recommendation
-# 
-
-# ### Hero URLS
-# https://playoverwatch.com/en-us/heroes/ana/
-# 
-
-# ### Interactive input function
-
-# In[121]:
 
 
 # Create the hero rating input for users:
