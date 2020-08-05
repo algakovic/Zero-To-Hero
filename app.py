@@ -6,9 +6,6 @@ from flask import Flask, jsonify, request
 # CORS is to allow us to access this API from a different server
 from flask_cors import CORS
 
-# time lib only for me to use sleep method to simulate delay waiting for model to run - you can get rid of it
-import time
-
 app = Flask(__name__)
 # apply the cors config to allow access
 app.config['CORS_HEADERS'] = 'Content-Type'
