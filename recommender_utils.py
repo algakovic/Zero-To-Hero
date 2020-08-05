@@ -7,12 +7,6 @@ import numpy as np
 from surprise import Reader, Dataset, accuracy
 from surprise.prediction_algorithms import KNNWithMeans, KNNBasic, KNNBaseline
 
-# #Reassign all User Battle_Tag IDs to Numbers to preserve user privacy
-# def privacy_function(df):
-#     df1 = df.reset_index()
-#     df1.drop(columns='Battle_Tag', inplace=True)
-#     df1.rename(columns={'index':'U_id'}, inplace=True)
-#     return df1
 
 
 #Define the rating function:
