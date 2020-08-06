@@ -11,7 +11,8 @@ The system falls in line with the game developers encouragement to players of ch
 
 ## Key Files:
 1. [Link](https://docs.google.com/presentation/d/1Msojl3rMYKx6QoBoxKPLGWAH0FjbMUsbQF8YecpShV8/edit?usp=sharing) to google slides presentation file  
-2. Zero_to_Hero_Presentation.pdf: PDF of presentation slides  3. Zero_to_Hero.ipynb: Jupyter Notebook  
+2. Zero_to_Hero_Presentation.pdf: PDF of presentation slides  
+3. Zero_to_Hero.ipynb: Jupyter Notebook  
 4. Recommender_utils.py: Local python functions source file for jupyter notebook   
 5. 60k_Top5_heroes.csv: Raw CSV file with data  
 6. app.py: Flask application file  
@@ -32,15 +33,18 @@ The system falls in line with the game developers encouragement to players of ch
 ## Key Findings:
 The system recommends well to users who exist in the database.
 However it does not extend well to new users that have to overcome the cold start problem by choosing and rating the five randomly selected heroes.
+The data that trained the KNN model is highly skewed towards top players and thus recommendations returned follow a set hierarchy of heroes.
+In other words the model returns what most players at the top level are playing in the current meta state of the game.
 
 Space reserved for image.
 
 
-
 ## Conclusions:
-The Main issue with the system is the skewedness of the training data towards highest ranking players. These players tend towards playing similar 'best choice' heroes and so the system is weighted towards recommending those heroes over others.
+The Main issue with the system is the skewedness of the training data towards highest ranking players. These players tend towards playing similar 'best choice' heroes and so the system is weighted towards recommending those heroes over others. 
 
 ## Recommendations:
+Obtain data on the community at large rather than top ranked players and run model again.
+
 Features to implement include: 
 - Existing users will be able to provide their Battle_Tag id to obtain a recommendation.  
 
