@@ -36,7 +36,10 @@ However it does not extend well to new users that have to overcome the cold star
 The data that trained the KNN model is highly skewed towards top players and thus recommendations returned follow a set hierarchy of heroes.
 In other words the model returns what most players at the top level are playing in the current meta state of the game.
 
-Space reserved for image.
+
+![Prediction function in action:](/Images/Prediction-function-in-action.png)
+prediction function for recommendation system returning 
+
 
 
 ## Conclusions:
