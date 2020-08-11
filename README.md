@@ -7,7 +7,8 @@ Zero to Hero is a recommendation system that offers users who play the popular e
 
 Often players will be stuck single-mindedly on a hero unwilling to choose a new hero to play. This can put enormous pressure on the team. These users will be able to get a hero recommended to them using Zero to hero. Older players who have played a long time and want to diversify their hero pool can also benefit. 
 
-The system falls in line with the game developers encouragement to players of choosing heroes that they enjoy playing or at the very least providing some variety in their hero choices.
+The system falls in line with the game developers encouragement to players of choosing heroes that they enjoy playing or at the very least providing some variety in their hero choices.  
+
 You can try the app created by my partner and I [here](https://zerotohero.netlify.app/).
 ## Key Files:
 1. [Link](https://docs.google.com/presentation/d/1Msojl3rMYKx6QoBoxKPLGWAH0FjbMUsbQF8YecpShV8/edit?usp=sharing) to google slides presentation file  
