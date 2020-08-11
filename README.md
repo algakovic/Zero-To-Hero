@@ -34,11 +34,11 @@ You can try the app created by my partner and I [here](https://zerotohero.netlif
 The system recommends well to users who exist in the database.
 However it does not extend well to new users that have to overcome the cold start problem by choosing and rating the five randomly selected heroes.
 The data that trained the KNN model is highly skewed towards top players and thus recommendations returned follow a set hierarchy of heroes.
-In other words the model returns what most players at the top level are playing in the current meta state of the game.
+In other words the model returns what most players at the top level are playing in the current meta state of the game. Based on this data 'Genji', 'Widowmaker', 'McCree', 'Hanzo' and 'Ana' are consistently at the top of the recommended list.
 
 
 ![Prediction function in action:](/Images/Prediction-function-in-action.png)
-prediction function for recommendation system returning 
+Prediction function for recommendation system returning sorted list of hero recommendations
 
 
 
