@@ -40,13 +40,13 @@ In other words the model returns what most players at the top level are playing 
 ![Prediction function in action:](/Images/Prediction-function-in-action.png)
 Prediction function for recommendation system returning sorted list of hero recommendations
 
-
-
 ## Conclusions:
 The Main issue with the system is the skewedness of the training data towards highest ranking players. These players tend towards playing similar 'best choice' heroes and so the system is weighted towards recommending those heroes over others. 
 
+<a href="https://zerotohero.netlify.app/" target="_blank"><img src="Images/Netlify-App-landing.png" 
+alt="Netlify App Landing page" width="240" height="180" border="10" /></a>
 ## Recommendations:
-Obtain data on the community at large rather than top ranked players and run model again.
+The biggest step forwards would be to obtain data on the community at large rather than top ranked players and run model again.
 
 Features to implement include: 
 - Existing users will be able to provide their Battle_Tag id to obtain a recommendation.  
