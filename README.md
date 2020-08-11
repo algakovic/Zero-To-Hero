@@ -42,7 +42,7 @@ In other words the model returns what most players at the top level are playing 
 Prediction function for recommendation system returning sorted list of hero recommendations
 
 ## Conclusions:
-The Main issue with the system is the skewedness of the training data towards highest ranking players. These players tend towards playing similar 'best choice' heroes and so the system is weighted towards recommending those heroes over others. 
+The Main issue with the system is the skewedness of the training data towards highest ranking players. These players tend to pick similar 'best choice' heroes and so the recommendations are weighted in favour of those heroes over others. 
 
 You can click the image below to try the recommendation system for yourself.
 
