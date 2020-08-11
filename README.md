@@ -43,8 +43,10 @@ Prediction function for recommendation system returning sorted list of hero reco
 ## Conclusions:
 The Main issue with the system is the skewedness of the training data towards highest ranking players. These players tend towards playing similar 'best choice' heroes and so the system is weighted towards recommending those heroes over others. 
 
+Below is a link to the netlify app where you can try the recommendation system for yourself.
+
 <a href="https://zerotohero.netlify.app/" target="_blank"><img src="Images/Netlify_App_Landing_Page.png" 
-alt="Netlify App Landing page" width="400" height="250" border="10" /></a>
+alt="Netlify App Landing page" width="1080" height="900" border="10" /></a>
 ## Recommendations:
 The biggest step forwards would be to obtain data on the community at large rather than top ranked players and run model again.
 
