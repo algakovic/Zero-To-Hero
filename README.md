@@ -46,7 +46,7 @@ The Main issue with the system is the skewedness of the training data towards hi
 Below is a link to the netlify app where you can try the recommendation system for yourself.
 
 <a href="https://zerotohero.netlify.app/" target="_blank"><img src="Images/Netlify_App_Landing_Page.png" 
-alt="Netlify App Landing page" width="1080" height="900" border="10" /></a>
+alt="Netlify App Landing page" width="1080" height="720" border="10" /></a>
 ## Recommendations:
 The biggest step forwards would be to obtain data on the community at large rather than top ranked players and run model again.
 
