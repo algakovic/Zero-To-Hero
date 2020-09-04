@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 from surprise import Reader, Dataset, accuracy
 from surprise.prediction_algorithms import KNNWithMeans, KNNBasic, KNNBaseline
-
+import time
 
 
 #Define the rating function:

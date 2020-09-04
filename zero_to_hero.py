@@ -5,7 +5,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib as plt
-
+import time
 
 
 
@@ -107,10 +107,19 @@ trainset, testset = train_test_split(train_data, test_size=.25)
 # # Instantiate two KNN Basic memory based model
 # # ⏰ This cell may take several minutes to run
 
+
 algobaseitems = KNNBaseline(sim_options={'name':'cosine', 'user_based':False})
+start = time.time()
 algobaseitems.fit(trainset)
+end = time.time()
+fit_time = (end - start)
+
+start = time.time()
 predictions = algobaseitems.test(testset)
-accuracy.rmse(predictions)
+end = time.time()
+
+pred_time = (end-start)
+print(f'Fit time: {round(fit_time, 3)} / Predict time: {pred_time} / ---- Accuracy (RMSE): {accuracy.rmse(predictions)}')
 
 
 
