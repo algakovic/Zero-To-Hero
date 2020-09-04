@@ -119,7 +119,7 @@ predictions = algobaseitems.test(testset)
 end = time.time()
 
 pred_time = (end-start)
-print(f'Fit time: {round(fit_time, 3)} / Predict time: {pred_time} / ---- Accuracy (RMSE): {accuracy.rmse(predictions)}')
+print(f'Fit time: {round(fit_time, 3)} / Predict time: {pred_time} / ---- Accuracy (RMSE): {round(accuracy.rmse(predictions), 3)}')
 
 
 
