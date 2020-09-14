@@ -127,6 +127,19 @@ print(f'Fit time: {round(fit_time, 3)} / Predict time: {pred_time} / ---- Accura
 from collections import Counter
 
 def hero_rater(battle_tagid, heroes_df, num, role=None):
+    """Define function that collects ratings form new users:
+
+    Parameters:
+    battle_tagid (string): This is the new user data fed into the model
+    df (dataframe): current dataframe with all other users
+    algo (model object): The current model being used to make the predictions
+    all_heroes (list): list of all_heroes in the game
+    reader (Sikit-surprise reader object): used to read int he data for the model to work on.
+
+    Returns:
+    list of tuples: (Hero Name, prediction value) A list of top 5 recommended heroes for you
+
+   """
     # Placeholder lists
     rating_list = []
     duplicate_list = []
@@ -176,13 +189,8 @@ def hero_rater(battle_tagid, heroes_df, num, role=None):
 
 
 
-def test_rating():
-     rating = input('How do you rate this Hero on a scale of 1-5?, press n if you do not want to give a rating :\n')
-
-
-
 def prediction(user_rating, df, algo, all_heroes, reader):
-      """Define function to provide new hero for new User
+    """Define function to provide new hero for new User
 
     Parameters:
     user_rating (list): This is the new user data fed into the model

@@ -133,10 +133,8 @@ def prediction(new, user_rating, df, algo, all_heroes, reader, battle_tag=None):
    """
     hero_prediction_list = []
     player_rated_list = [i['Hero'] for i in user_rating]
-    rated_df = test = df.loc[(df['Ratings'] > 4) & (df['Battle_Tag'] == battle_tag), ['Battle_Tag','Hero']]
-    top_rated_list = [i for i in rated_df['Hero']]
     
-
+    
     # check if user exists in dataframe and predict for them:
     if battle_tag in list(df.Battle_Tag):
         for h_id in df['Hero'].unique():
