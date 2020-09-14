@@ -114,9 +114,23 @@ def hero_rater(battle_tagid, heroes_df, num, role=None):
 
 
 
-# define new hero for New User predictions functions
+
 def prediction(new, user_rating, df, algo, all_heroes, reader, battle_tag=None):
-    
+      """Define function to provide new hero for new User
+
+    Parameters:
+    new (Bool): provide new hero or not.
+    user_rating (list): This is the new user data fed into the model
+    df (dataframe): current dataframe with all other users
+    algo (model object): The current model being used to make the predictions
+    all_heroes (list): list of all_heroes in the game
+    reader (Sikit-surprise reader object): used to read int he data for the model to work on.
+    battle_tag=None (string): nickname for user if currently in database
+
+    Returns:
+    list of tuples: (Hero Name, prediction value)
+
+   """
     hero_prediction_list = []
     player_rated_list = [i['Hero'] for i in user_rating]
     rated_df = test = df.loc[(df['Ratings'] > 4) & (df['Battle_Tag'] == battle_tag), ['Battle_Tag','Hero']]
