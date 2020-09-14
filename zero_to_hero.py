@@ -181,19 +181,45 @@ def test_rating():
 
 
 
-# define new hero for New User predictions functions
-def new_hero_new_user_prediction(user_rating, df, algo, battle_tag=None):
+def prediction(new, user_rating, df, algo, all_heroes, reader, battle_tag=None):
+      """Define function to provide new hero for new User
+
+    Parameters:
+    new (Bool): provide new hero or not.
+    user_rating (list): This is the new user data fed into the model
+    df (dataframe): current dataframe with all other users
+    algo (model object): The current model being used to make the predictions
+    all_heroes (list): list of all_heroes in the game
+    reader (Sikit-surprise reader object): used to read int he data for the model to work on.
+    battle_tag=None (string): nickname for user if currently in database
+
+    Returns:
+    list of tuples: (Hero Name, prediction value)
+
+   """
     hero_prediction_list = []
     player_rated_list = [i['Hero'] for i in user_rating]
+    rated_df = test = df.loc[(df['Ratings'] > 4) & (df['Battle_Tag'] == battle_tag), ['Battle_Tag','Hero']]
+    top_rated_list = [i for i in rated_df['Hero']]
+    
+
     # check if user exists in dataframe and predict for them:
     if battle_tag in list(df.Battle_Tag):
-        
         for h_id in df['Hero'].unique():
-            if h_id not in player_rated_list and h_id not in ['Hanzo', 'Widowmaker', 'Genji', 'McCree']:
+            #Check if a new hero is to be recommended:
+            if new:
+                #Return only hero recommendations not rated by user:
+                if h_id not in top_rated_list:
+                    hero_prediction_list.append((h_id, algo.predict(battle_tag, h_id, clip=False)[3]))
+                    ranked_heroes = sorted(hero_prediction_list, key=lambda x:x[1], reverse=True)
+            # Otherwise return all hero recommendations even if rated by user.
+            else:
                 hero_prediction_list.append((h_id, algo.predict(battle_tag, h_id, clip=False)[3]))
-        ranked_heroes = sorted(hero_prediction_list, key=lambda x:x[1], reverse=True)
+                ranked_heroes = sorted(hero_prediction_list, key=lambda x:x[1], reverse=True)
+        print(top_rated_list)
         return ranked_heroes[:]
-    #Add new users ratings to the dataframe and read in the file
+                
+    # If user does not exist in dataframe, add their ratings and data to the dataframe and recalculate
     else: 
         zeroed_user_rating = user_rating + [{'Battle_Tag': user_rating[0]['Battle_Tag'], 'Hero': h, 'Ratings':0} for h in all_heroes if h not in player_rated_list]
         new_ratings_df = df.append(zeroed_user_rating, ignore_index=True, sort=False)
@@ -201,42 +227,18 @@ def new_hero_new_user_prediction(user_rating, df, algo, battle_tag=None):
         #fit algorithm to new data
         algo1 = KNNBaseline(sim_options={'name':'cosine', 'user_based':False})
         algo1.fit(new_data.build_full_trainset())
-        #return ranked predicted heroes that are not in the user rating list, or Hanzo, Widow, Genji or Mccree:
+        #return ranked predicted heroes that are not in the user rating list.
         for h_id in new_ratings_df['Hero'].unique():
-            if h_id not in player_rated_list and h_id not in ['Hanzo', 'Widowmaker', 'Genji']:
+            #Check if new hero is to be precommended:
+            if new:
+                if h_id not in player_rated_list:
+                    hero_prediction_list.append((h_id, algo1.predict(user_rating[0]['Battle_Tag'], h_id, clip=False)[3]))
+                    ranked_heroes = sorted(hero_prediction_list, key=lambda x:x[1], reverse=True)
+            else:
                 hero_prediction_list.append((h_id, algo1.predict(user_rating[0]['Battle_Tag'], h_id, clip=False)[3]))
-        ranked_heroes = sorted(hero_prediction_list, key=lambda x:x[1], reverse=True)
-        print(ranked_heroes[:10])
+                ranked_heroes = sorted(hero_prediction_list, key=lambda x:x[1], reverse=True)
         return ranked_heroes[:]
 
-
-# define New_User predictions functions
-def new_user_prediction(user_rating, df, algo, battle_tag=None):
-    hero_prediction_list = []
-    player_rated_list = [i['Hero'] for i in user_rating]
-    # check if user exists in dataframe and predict for them:
-    if battle_tag in list(df.Battle_Tag):
-        for h_id in df['Hero'].unique():
-            if h_id not in ['Hanzo', 'Widowmaker', 'Genji', 'McCree']:
-                hero_prediction_list.append((h_id, algo.predict(battle_tag, h_id, clip=False)[3]))
-        ranked_heroes = sorted(hero_prediction_list, key=lambda x:x[1], reverse=True)
-        return ranked_heroes[:]
-    
-    else:
-        zeroed_user_rating = user_rating + [{'Battle_Tag': user_rating[0]['Battle_Tag'], 'Hero': h, 'Ratings':0} for h in all_heroes if h not in player_rated_list]
-        #Add new users ratings to the dataframe and read in the file
-        new_ratings_df = df.append(zeroed_user_rating, ignore_index=True, sort=False)
-        new_data = Dataset.load_from_df(new_ratings_df[['Battle_Tag', 'Hero', 'Ratings']], reader)
-        #fit algorithm to new data
-        algo1 = KNNBaseline(sim_options={'name':'cosine', 'user_based':False})
-        algo1.fit(new_data.build_full_trainset())
-        
-        #return ranked predicted heroes that are not in the user rating list:
-        for h_id in new_ratings_df['Hero'].unique():
-            if h_id not in ['Hanzo', 'Widowmaker', 'Genji', 'McCree']:
-                hero_prediction_list.append((h_id, algo1.predict(user_rating[0]['Battle_Tag'], h_id, clip=False)[3]))
-        ranked_heroes = sorted(hero_prediction_list, key=lambda x:x[1], reverse=True)
-        return ranked_heroes[:]
 
 
 
