@@ -64,6 +64,19 @@ def concat_melt(df):
 from collections import Counter
 
 def hero_rater(battle_tagid, heroes_df, num, role=None):
+    """Define function that collects ratings form new users:
+
+    Parameters:
+    battle_tagid (string): This is the new user data fed into the model
+    df (dataframe): current dataframe with all other users
+    algo (model object): The current model being used to make the predictions
+    all_heroes (list): list of all_heroes in the game
+    reader (Sikit-surprise reader object): used to read int he data for the model to work on.
+
+    Returns:
+    list of tuples: (Hero Name, prediction value) A list of top 5 recommended heroes for you
+
+   """
     # Placeholder lists
     rating_list = []
     duplicate_list = []
