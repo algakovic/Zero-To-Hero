@@ -115,7 +115,7 @@ def hero_rater(battle_tagid, heroes_df, num, role=None):
 
 
 
-def prediction(new, user_rating, df, algo, all_heroes, reader, battle_tag=None):
+def prediction(user_rating, df, algo, all_heroes, reader, battle_tag=None):
       """Define function to provide new hero for new User
 
     Parameters:
@@ -139,16 +139,10 @@ def prediction(new, user_rating, df, algo, all_heroes, reader, battle_tag=None):
     if battle_tag in list(df.Battle_Tag):
         for h_id in df['Hero'].unique():
             #Check if a new hero is to be recommended:
-            if new:
-                #Return only hero recommendations not rated by user:
-                if h_id not in top_rated_list:
-                    hero_prediction_list.append((h_id, algo.predict(battle_tag, h_id, clip=False)[3]))
-                    ranked_heroes = sorted(hero_prediction_list, key=lambda x:x[1], reverse=True)
-            # Otherwise return all hero recommendations even if rated by user.
-            else:
+            #Return only hero recommendations not rated by user:
+            if h_id not in top_rated_list:
                 hero_prediction_list.append((h_id, algo.predict(battle_tag, h_id, clip=False)[3]))
                 ranked_heroes = sorted(hero_prediction_list, key=lambda x:x[1], reverse=True)
-        print(top_rated_list)
         return ranked_heroes[:]
                 
     # If user does not exist in dataframe, add their ratings and data to the dataframe and recalculate
@@ -161,12 +155,7 @@ def prediction(new, user_rating, df, algo, all_heroes, reader, battle_tag=None):
         algo1.fit(new_data.build_full_trainset())
         #return ranked predicted heroes that are not in the user rating list.
         for h_id in new_ratings_df['Hero'].unique():
-            #Check if new hero is to be precommended:
-            if new:
-                if h_id not in player_rated_list:
-                    hero_prediction_list.append((h_id, algo1.predict(user_rating[0]['Battle_Tag'], h_id, clip=False)[3]))
-                    ranked_heroes = sorted(hero_prediction_list, key=lambda x:x[1], reverse=True)
-            else:
+            if h_id not in player_rated_list:
                 hero_prediction_list.append((h_id, algo1.predict(user_rating[0]['Battle_Tag'], h_id, clip=False)[3]))
                 ranked_heroes = sorted(hero_prediction_list, key=lambda x:x[1], reverse=True)
         return ranked_heroes[:]
