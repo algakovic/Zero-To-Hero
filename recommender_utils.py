@@ -116,7 +116,7 @@ def hero_rater(battle_tagid, heroes_df, num, role=None):
 
 
 def prediction(user_rating, df, algo, all_heroes, reader, battle_tag=None):
-      """Define function to provide new hero for new User
+    """Define function to provide new hero for new User
 
     Parameters:
     new (Bool): provide new hero or not.
