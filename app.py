@@ -22,4 +22,4 @@ def predict_top_hero():
     return jsonify(result)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True)s
